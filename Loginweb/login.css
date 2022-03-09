@@ -1,0 +1,89 @@
+*{
+    margin: 0%;
+    top: 0%;
+}
+
+body {
+    /* background-image: url(MegaShop.gif);*/
+   background: url("../conteudos/fundo.png") no-repeat  ;
+}
+
+
+.box_login {
+    background-color: rgba(0, 0, 0, 0.3);
+
+    width: 80vh;
+    height: 21.3rem;
+    margin: 0 auto;
+    margin-top: 25vh;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.btn_login {
+    width: 155px;
+    height: 40px;
+    font-family: Arial;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: orange;
+    color: white;
+}
+
+input {
+    width: 80%;
+    height: 30px;
+    font-family: Arial;
+    font-size: 15px;
+    border-radius: 2px;
+    border-color: none;
+    outline: none;
+    margin-bottom: 10px;
+    padding-left: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+    
+    
+}input.email{
+    background-image: url(../conteudos/icone-usuario.png);
+}
+input.senha{
+    background-image: url(../conteudos/icone-cadeado.png);
+}
+
+.box_login img{
+    width: 15vh;
+    height: 15vh;
+    margin-top: -10%;
+   
+   
+}#email{
+    margin-top: 5%;
+}
+a{
+    font-family: arial;
+    font-size: 15px;
+    color: white;
+    text-decoration: none;
+    
+}a:hover{
+    color: orange;
+    text-decoration:underline;
+}
+
+.fa-eye {
+    visibility: collapse;
+    position: absolute;
+    top: 0%;
+}
+#validado{
+    font-family: arial;
+    font-size: 1.2em;
+    display: block;
+    color: white;
+    z-index: 1;
+    margin: 10px 0px;
+    background:rgb(19, 100, 46);
+    display: none;
+} 

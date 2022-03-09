@@ -1,0 +1,99 @@
+*{
+    padding:0%;
+    margin: 0%;
+}
+
+
+body {
+    /* background-image: url(MegaShop.gif);*/
+    background: url(../conteudos/fundo.png)no-repeat;
+
+}
+.box_register {
+    background-color: rgba(0, 0, 0, 0.3);
+
+    width: 80vh;
+    height: 33.3rem;
+    margin: 0 auto;
+    margin-top: 25vh;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.btn_register {
+    width: 155px;
+    height: 40px;
+    font-family: Arial;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: orange;
+    color: white;
+    margin-top: 3%;
+    
+}.box_register img{
+    width: 15vh;
+    height: 15vh;
+    margin-top: -10%;
+}
+
+input {
+    width: 65vh;
+    height: 2rem;
+    font-family: Arial;
+    font-size: 1em;
+    border-radius: 10px solid;
+    outline: none;
+    
+    
+}.camp_text{
+    width: 80%;
+    height: 80%;
+    margin:0 auto;
+    margin-top: 15px;
+}
+.camp_text:hover{
+    border-color: none;
+}
+
+label{
+    font-family: arial;
+    font-size: 15px;
+    margin: 15px 0px 4px;
+    color: white;
+    display: block;
+    text-align: left;
+    
+
+}
+.fa-eye {
+    visibility: collapse;
+    position: absolute;
+    top: 0%;
+}
+
+#validado{
+    font-family: arial;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+    color: white;
+    background-color: greenyellow;
+    z-index: 2;
+    padding: 5px;
+    display: none;
+
+  
+}#erro2{
+    font-family: arial;
+    font-size: 15px;
+    text-align: center;
+    display: block;
+    color: white;
+    background-color: red;
+    z-index: 2;
+    padding: 5px;
+    display: none;
+    
+
+}

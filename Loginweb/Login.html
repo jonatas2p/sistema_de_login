@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>login</title>
+    <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+    
+    
+
+    <div class="box_login">
+        <img src="../conteudos/perfil.png" alt="">
+        
+            <div>
+                <input class="email" type="email" name="email" id="email" placeholder="E-amil">
+                <input class="senha" type="password" name="senha" id="senha"placeholder="Senha">
+                <button class="btn_login" onclick='entrar()' type="submit"> Logar</button>
+
+
+            </div>
+        
+        <br>
+        <a class="link_ops" href="http://">Esqueci a senha</a><br>
+        <a class="link_ops" href="../registroweb/registro.html">Criar uma conta</a>
+        <div id="validado">Login feito com Sucesso, aguarde....</div>
+
+
+    </div>
+
+</body>
+
+</html>
+<script>
+
+function entrar(){
+
+    let login = document.querySelector('#email')
+
+    let senha = document.querySelector('#senha')
+
+    let msgsucesso = document.querySelector('#validado')
+
+
+
+    let listUser = []
+
+    let userValid = {
+
+        login: '',
+        senha: ''
+        
+
+    }
+
+    listUser = JSON.parse(localStorage.getItem('listUser')) //recebe a lista do 'banco local'
+    listUser.forEach((element2) => {   
+
+        if(login.value == element2.loginCadast && senha.value == element2.senhaCadast)
+
+        userValid = {
+            login: element2.loginCadast,  // verifica se a conta que o usuarío digitou no 'banco'
+            senha: element2.senhaCadast,
+            
+            
+
+        }
+        
+    }) 
+    if(login.value == userValid.login && senha.value == userValid.senha){
+        setTimeout(()=>{
+
+        window.location.href="" //depois que o login for válido, será enviado para página inicial 
+
+        }, 2000) // depois de 3s = 3000ms
+
+        let token = Math.random().toString(16).substr(2) + Math.random().toString(16).substr(2) // Gera um token de forma Randomica(aleatória) e armazena no 'banco' do navegador 
+        localStorage.setItem('token', token)
+
+        localStorage.setItem('userlogado', JSON.stringify(userValid))
+
+        msgsucesso.setAttribute('style','display:block')
+        msgsucesso.innerHTML= 'Login feito com Sucesso, Aguarde....'
+
+    }else{
+        login.setAttribute('style','border-color:red')
+        senha.setAttribute('style','border-color:red')
+        login.innerHTML=''
+        senha.innerHTML=''
+        login.focus()
+
+    }
+
+    
+
+}
+  
+
+
+</script>

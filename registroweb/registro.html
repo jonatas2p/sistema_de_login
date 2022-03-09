@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar nova Conta</title>
+    <link rel="stylesheet" href="registro.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+</head>
+
+<body>
+  
+
+    <div class="box_register">
+        <div id="validado">
+        </div>
+        <div id="erro2">
+        </div>
+        <img src="../conteudos/perfil_criar.png" alt="">
+
+        <div class="camp_text">
+            
+            
+            <form action="#" >
+                <label  id='labelnome'>Nome Completo</label>
+                <input type="text" name="" id="nome" autocomplete="off">
+            
+                <label id='labellogin'>Login</label>
+                <input  type="text" name="" id="login" autocomplete="off">
+                
+                <label id='labelsenha'>Senha</label>
+                <input  type="password" name="" id="senha">
+                
+                <label id='labelconfsenha'>Confirmação de Senha</label>
+                <input type="password" name="" id="confsenha">
+                
+                
+                <label id='labelemail'>E-mail</label>
+                <input  type="email" name="" id="e-mail">
+                
+                <button class="btn_register" onclick='cadastro()' type="submit"> Registrar</button>
+            
+            </form>
+        
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+
+<script>
+
+let labelnome = document.querySelector('#labelnome')
+let labellogin = document.querySelector('#labellogin')
+let labelsenha = document.querySelector('#labelsenha')
+let labelconfsenha = document.querySelector('#labelconfsenha')
+let labelemail = document.querySelector('#labelemail')
+    let nome = document.querySelector('#nome')
+    let login = document.querySelector('#login')
+    let senha = document.querySelector('#senha')
+    let confsenha = document.querySelector('#confsenha')
+    let nascimento = document.querySelector('#date_nascimento')
+    let email = document.querySelector('#e-mail')
+
+    /* >>>>>>>>>>> validacao<<<<<<<<<<<<<*/
+
+    
+let validsenha,validconfsenha,validemail,validnome = false
+let validado = document.querySelector('#validado')
+let erro2 = document.querySelector('#erro2')
+
+    /* >>>>>>>>>>>>>>>>>>>> CAMPOS VALIDAÇÂO <<<<<<<<<<<<<<<*/
+
+    nome.addEventListener('keyup', ()=> {       /* Nome */  
+        if(nome.value.length <= 2){
+            labelnome.setAttribute('style','color:red')
+            nome.setAttribute('style','border-color:red')
+            validnome = false
+
+
+    }else{
+        labelnome.setAttribute('style','color:green')
+        nome.setAttribute('style','border-color:green')
+        validnome= true
+    }
+
+})
+
+
+    senha.addEventListener('keyup', ()=> { /* senha */
+        if(senha.value.length <= 5){
+            labelsenha.setAttribute('style','color:red')
+            senha.setAttribute('style','border-color:red')
+            validsenha = false
+
+
+    }else{
+        labelsenha.setAttribute('style','color:green')
+        validsenha = true
+        
+       
+    }
+
+})
+confsenha.addEventListener('keyup', ()=> { /* confirmação da senha */
+        if(senha.value != confsenha.value){
+            labelconfsenha.setAttribute('style','color:red')
+            confsenha.setAttribute('style','border-color:red')
+            validconfsenha= false
+
+
+    }else{
+        labelconfsenha.setAttribute('style','color:green')
+        confsenha.setAttribute('style','border-color:green')
+        senha.setAttribute('style','border-color:green')
+        validconfsenha = true
+    }
+
+})
+
+
+    login.addEventListener('keyup', ()=> {   /* login */
+        if(login.value.length <= 2){
+            labellogin.setAttribute('style','color:red')
+            login.setAttribute('style','border-color:red')
+            validlogin = false
+
+
+    }else{
+        labellogin.setAttribute('style','color:green')
+        login.setAttribute('style','border-color:green')
+        validlogin = true
+    }
+
+})
+    email.addEventListener('keyup', ()=> {  /* E-mail */
+        if(email.value.length <= 10){
+            labelemail.setAttribute('style','color:red')
+            email.setAttribute('style','border-color:red')
+            validemail = false
+
+
+    }else{
+        labelemail.setAttribute('style','color:green')
+        email.setAttribute('style','border-color:green')
+         validemail = true
+    }
+
+})
+
+
+
+
+function cadastro(){
+
+if (validnome && validlogin  && validconfsenha && validsenha && validemail){
+
+let listaUser = JSON.parse(localStorage.getItem('listaUser') || '[]')
+
+listaUser.push({
+    nomeCadast: nome.value,
+    loginCadast: login.value,
+    senhaCadast: senha.value,
+    emailCadast: email.value
+})
+localStorage.setItem('listUser',JSON.stringify(listaUser))
+
+
+    validado.setAttribute('style', 'display:block')
+    validado.innerHTML= '<strong>Sucesso, você será direcionado. aguarde...</strong>'
+    erro2.setAttribute('style','display: none')
+    erro2.innerHTML= ''
+
+    setTimeout(()=>{
+
+        window.location.href='file:///C:/Users/jonat/Desktop/Projetos%20VS.PYTHON/Site_filmes/site/Login%20-%20registrar/Login.html'
+
+    }, 3000)
+ 
+}else{
+    validado.setAttribute('style', 'display:none')
+    erro2.setAttribute('style','display:block')
+    erro2.innerHTML= '<strong> erro ao cadastrar..</strong>'
+    validado.innerHTML= ''
+}
+}
+</script>
